@@ -1,0 +1,53 @@
+{
+    "job": {
+        "content": [
+            {
+                "reader": {
+                    "name": "mysqlreader",
+                    "parameter": {
+                        "username": "****",
+                        "password": "****",
+                        "column": ["rank","payment"],
+                        "connection": [
+                            {
+                                "table": [
+                                    "salary"
+                                ],
+                                "jdbcUrl": [
+                                    "jdbc:mysql://127.0.0.1:3306/test"
+                                ]
+                            }
+                        ]
+                    }
+                },
+                "writer": {
+                    "name": "oraclewriter",
+                    "parameter": {
+                        "username": "****",
+                        "password": "****",
+                        "column": [
+                            "rank",
+                            "payment"
+                        ],
+                        "preSql": [
+                            "delete from oracle_test"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:oracle:thin:@127.0.0.1:1521:test",
+                                "table": [
+                                    "oracle_test"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": 1
+            }
+        }
+    }
+}

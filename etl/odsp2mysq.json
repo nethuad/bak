@@ -1,0 +1,69 @@
+{
+    "job": {
+        "content": [
+            {
+
+            "reader": {
+                    "name": "odpsreader",
+                    "parameter": {
+                        "accessId": "LTAIRFDnrN660HWe",
+                        "accessKey": "T0mFczTQwziIItyySdZ9QMMvANEgc6",
+                        "project": "xmszysample",
+                        "table": "stat_user_tag",
+                        "column": [
+                            "user_id",
+                            "province",
+                            "city",
+                            "county",
+                            "birthday",
+                            "baby_id",
+                            "baby_birthday",
+                            "model"
+                        ],
+                        "packageAuthorizedProject": "xmszysample",
+                        "splitMode": "record",
+                        "odpsServer": "http://service.odps.aliyun.com/api"
+                    }
+                },
+                "writer": {
+                    "name": "mysqlwriter",
+                    "parameter": {
+                        "writeMode": "insert",
+                        "username": "szy",
+                        "password": "yP0tfUTHvP5q",
+                        "column": [
+                            "user_id",
+                            "province",
+                            "city",
+                            "county",
+                            "birthday",
+                            "baby_id",
+                            "baby_birthday",
+                            "model"
+                        ],
+                        "session": [
+                            "set session sql_mode='ANSI'"
+                        ],
+                        "preSql": [
+                            "truncate log_stat_user_tag"
+                        ],
+                        "connection": [
+                            {
+                                "jdbcUrl": "jdbc:mysql://172.16.200.17:3306/ztjy_xm?useUnicode=true&characterEncoding=utf8",
+                                "table": [
+                                    "log_stat_user_tag"
+                                ]
+                            }
+                        ]
+                    }
+                    
+                }
+            }
+        ],
+        "setting": {
+            "speed": {
+                "channel": 5
+            }
+        }
+    }
+}
