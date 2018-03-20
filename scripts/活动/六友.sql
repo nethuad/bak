@@ -1,7 +1,5 @@
 use xueshandai
 
-
-
 select CONVERT(varchar(7) , date_created, 120 ) as ym,
 sum(award) as amount 
 from Member_Recommend_Award 
@@ -10,8 +8,10 @@ order by ym
 
 --计算获得的奖励，推荐人总数,推荐人的投标情况
 
-select count(1) as c ,count(distinct invest_id) as c2 from Member_Recommend_Award
-4212
+select count(1) as c ,count(distinct member_id),count(distinct invest_id) as c2 from Member_Recommend_Award
+--4212	182	4212
+
+select top 10 * from Member_Recommend_Award
 
 select is_reward, count(1) as c from Member_Recommend_Award group by is_reward
 
@@ -52,7 +52,7 @@ group by CONVERT(varchar(7) , activate_time, 120 )
 
 select count(distinct member_id) from #1
 
---分析推荐人
+--分析被推荐人
 drop table #2
 select a.referrer_id,a.member_id,reg_time
 into #2

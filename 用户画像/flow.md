@@ -91,6 +91,8 @@ https://www.douban.com/note/336280497/
 http://blog.csdn.net/qq1010885678/article/details/46675501
 http://blog.csdn.net/BaiHuaXiu123/article/details/54602267
 
+logistic
+http://dataunion.org/17006.html
 
 风控
 http://cio.51cto.com/art/201703/533290.htm

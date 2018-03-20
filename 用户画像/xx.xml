@@ -1,0 +1,76 @@
+--登录时间
+select id,'last_login_time' as name,'最后一次登录时间' as cnname,CONVERT(varchar(20),last_login_time,120) as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--email
+select id,'email' as name,'电子邮件' as cnname,email as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+
+--is_valid_email
+select id,'is_valid_email' as name,'是否有效电子邮件' as cnname,cast(is_valid_email as varchar)  as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--mobile
+select id,'mobile' as name,'手机' as cnname,mobile as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--is_valid_mobile
+select id,'is_valid_mobile' as name,'是否有效手机' as cnname,cast(is_valid_mobile as varchar) as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--idcard
+select id,'idcard' as name,'身份证' as cnname,idcard as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--is_valid_idcard
+select id,'is_valid_idcard' as name,'是否有效身份证' as cnname,cast(is_valid_idcard as varchar) as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--is_vip
+select id,'is_vip' as name,'是否vip' as cnname,cast(is_vip as varchar) as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--vip_end_date
+select id,'vip_end_date' as name,'vip结束时间' as cnname,CONVERT(varchar(20),vip_end_date,120) as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--is_company
+select id,'is_company' as name,'是否公司' as cnname,cast(is_company as varchar) as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--auth_reason
+select id,'auth_reason' as name,'认证结果' as cnname,auth_reason as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.member
+
+union all
+
+--is_admin
+select id,'is_admin' as name,'是否管理员' as cnname,cast(is_admin as varchar) as value,coalesce(last_updated,date_created) AS dt_src
+FROM xueshandai.dbo.MEMBER
+
+
+
+Error: Mysql2::Error: Unknown column 'roles.builtin' in 'where clause': SELECT  1 AS one FROM `roles` WHERE `roles`.`builtin` = 0 LIMIT 1
+Default configuration data was not loaded.
+dhua@iZ112gqplg5Z:/var/www/redmine$ RAILS_ENV=production REDMINE_LANG=zh bundle exec rake redmine:load_default_data
+Error: Mysql2::Error: Unknown column 'roles.builtin' in 'where clause': SELECT  1 AS one FROM `roles` WHERE `roles`.`builtin` = 0 LIMIT 1
+Default configuration data was not loaded.
